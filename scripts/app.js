@@ -1,6 +1,7 @@
 
 (function () {
     LoadExitingCity();
+
     var filePath = "http://api.timezonedb.com/v2/list-time-zone?key=LOG8R9E644IJ&format=json";
     var citySelector = $('#city');
 
@@ -40,10 +41,19 @@
     });
 
     // Remove city
-    $(document).on('click', '#removeCityBtn', function () {
+    $(document).on('click', '.removeCityBtn', function () {
         // console.log($(this).closest('.col-md-4')[0].id);
         localStorage.removeItem($(this).closest('.col-md-4')[0].id);
         $(this).closest('.col-md-4').remove();
+    });
+
+    // Show Text of Remove Button
+    $('.removeCityBtn').hover(function () {
+        $(this).html('<span class="glyphicon glyphicon-remove"></span> Remove');
+    });
+
+    $('.removeCityBtn').mouseleave(function () {
+        $(this).html('<span class="glyphicon glyphicon-remove"></span>');
     });
 
     // Making JSON string to save the info in Local Storage
@@ -117,7 +127,7 @@
         $('#cities') .append(
             '<div class="col-md-4" id="'+cityName+'">' +
             '<div class="thumbnail">' +
-            '<a class="btn btn-danger btn-sm pull-right" id="removeCityBtn"><span class="glyphicon glyphicon-remove"></span></a>' +
+            '<a class="btn btn-danger btn-xs pull-right removeCityBtn"><span class="glyphicon glyphicon-remove"></span></a>' +
             '<h2><span class="glyphicon glyphicon-map-marker"></span>'+cityName+'</h2>' +
             '<h3><span class="glyphicon glyphicon-cloud"></span> '+GetTemperature(cityName)+'</h3>' +
             '<h5><span class="glyphicon glyphicon-time"></span> '+SynchronizeLocalTime(cityValue.Difference)+'</h5>' +
