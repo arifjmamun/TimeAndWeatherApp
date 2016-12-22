@@ -1,0 +1,11 @@
+{
+  "Asia":[
+    "Tokyo", "Chongqing", "Seoul", "Shanghai", "Karachi", "Beijing", "Guangzhou", "Mumbai", "	Delhi", "Manila", "Wuhan", "	Osaka", "Tianjin", "Kolkata", "Jakarta", "Dhaka", "Shenzhen", "Shenyang", "Tehran", "Bangkok", "Chennai", "Nagoya", "Bengaluru", "Hong Kong", "Taipei", "Lahore", "Kuala Lumpur", "Hyderabad", "Ho Chi Minh City", "Ahmedabad", "Kathmandu"
+  ],
+  "Africa":[
+    "Lagos", "Cairo", "Kinshasa-Brazzaville", "Greater Johannesburg", "Mogadishu", "Khartoum-Omdurman", "Dar es Salaam", "Alexandria", "Abidjan", "Casablanca", "Cape Town", "Durban", "	Accra", "	Nairobi", "	Kano", "Ibadan", "Algiers", "Addis Ababa", "Luanda", "Dakar", "	Pretoria", "	Tripoli", "Harare", "Douala", "Niamey", "Hargeisa", "Abuja", "Lusaka", "Kampala", "Bamako", "Maputo", "Rabat", "Antananarivo", "Yaoundé", "Ouagadougou", "Conakry", "Ouagadougou", "Conakry", "Kaduna", "Kumasi", "Lubumbashi","	Mbuji-Mayi", "Oran", "Asmara", "Port Harcourt", "Tunis", "Freetown", "Cotonou", "Vereeniging", "Fès", "Djibouti City", "Maiduguri", "Monrovia", "Port Elizabeth", "Huambo", "Ogbomosho","Zaria", "Ndjamena"
+  ],
+  "Europe":[
+    "Amsterdam", "Antwerp", "Athens", "Barcelona", "Belgrade", "Berlin", "Bilbao", "Birmingham", "Bremen", "Greater Bristol", "Brussels", "Bucharest", "Budapest", "Cardiff", "Copenhagen", "Donetsk", "Dnipropetrovsk", "Dublin", "Frankfurt", "Greater Glasgow", "Hague", "Hamburg", "Helsinki", "Istanbul", "Katowice", "Kazan", "Kharkiv", "Kyiv", "Kraków", "West Yorkshire", "Lille–Kortrijk–Tournai", "Lisbon", "Liverpool", "Łódź", "Wrocław", "London", "Lyon", "Madrid", "Greater Manchester", "Marseille", "Milan", "Minsk", "Moscow", "Munich", "Naples", "Nice", "Nizhny Novgorod", "Nottingham-Derby", "Nuremberg", "Odesa", "Greater Oslo", "Paris", "Perm", "Porto", "Portsmouth-Southampton", "Prague", "Rhein-Nord", "Rhein-Süd", "Riga", "Rome", "Rostov-on-Don", "Rotterdam", "Ruhr", "Saarbrücken - Forbach", "Saint Petersburg", "Samara", "Saratov", "Seville", "Sofia", "Stockholm", "South Yorkshire", "Stuttgart", "Thessaloniki", "Turin", "Newcastle-Sunderland", "Ufa", "Valencia", "Vienna", "Volgograd", "Warsaw", "Zagreb", "Zürich"
+  ]
+}

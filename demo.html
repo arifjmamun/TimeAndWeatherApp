@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="time"> </div>
+<select name="city" id="city">
+
+</select>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+//    $(function(){
+//        $.getJSON("http://api.timezonedb.com/v2/list-time-zone?key=LOG8R9E644IJ&format=json",{format:"json"}).done(function(data){
+//            console.log(data.zones[0]);
+//            console.log(data.zones.length);
+//            for(var i=0; i<data.zones.length; i++){
+//                console.log(data.zones[i]);
+//                var splitedString = data.zones[i].zoneName.split("/", 2);
+//                document.writeln(splitedString[0]+"=>"+splitedString[1]+"<br>");
+//            }
+//        });
+
+        // getting time zone:
+        //http://api.timezonedb.com/v2/get-time-zone?key=LOG8R9E644IJ&by=zone&zone=Asia/Tashkent&format=json
+
+        // getting list of zoneName:
+        //http://api.timezonedb.com/v2/list-time-zone?key=LOG8R9E644IJ&format=json
+    //});
+</script>
+<script>
+//var dateString = "";
+//$.getJSON("http://api.timezonedb.com/v2/get-time-zone?key=LOG8R9E644IJ&by=zone&zone=America/Cancun&format=json", {format:"json"}).done(function (data) {
+//    var localTimeofAnother = new Date(data['formatted'].replace(/-/g, '/'));
+//    var now = new Date();
+//    var minDiff = (localTimeofAnother.getHours()+12)-(now.getHours()+12);
+//    document.write(minDiff+'<br>');
+//    document.write(localTimeofAnother.getHours()+12);
+//});
+
+//    function updateClock() {
+//        var runningNow = new Date();
+////        runningNow.setTime(localTimeofAnother.getTime());
+//                var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+//                time = runningNow.getHours() + ':' + runningNow.getMinutes() + ':' + runningNow.getSeconds(),
+//                // a cleaner way than string concatenation
+//                date = [runningNow.getDate(), months[runningNow.getMonth()], runningNow.getFullYear()].join(' ');
+//
+//        // set the content of the element with the ID time to the formatted string
+//        document.getElementById('time').innerHTML = [date, time].join(' / ');
+//
+//        // call this function again in 1000ms
+//        setTimeout(updateClock, 1000);
+//    }
+//    updateClock(); // initial call
+//
+//    function shit() {
+//        var d1 = new Date (), d2 = new Date ( d1 );
+//        d2.setMinutes ( d1.getMinutes() + 30 );
+//        document.getElementById('time').innerHTML = d2;
+//        setTimeout(shit, 1000);
+//    }
+//    shit();
+
+//var dateString = "2016-12-22 10:13:31";
+//var now = new Date(dateString.replace(/-/g, '/'));
+//var rightNow = new Date();
+//    document.write(now.getTime()+'<br>');
+//    document.write(rightNow.getTime());
+</script>
+<script>
+    $.getJSON("http://api.timezonedb.com/v2/list-time-zone?key=LOG8R9E644IJ&format=json", {format:"json"}).done(function(data){
+        for(var i=0; i<data.zones.length; i++){
+            $('#city').append('<option value="'+data.zones[i].zoneName+'">'+data.zones[i].zoneName.split('/').pop()+'</option>');
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+.mar-left-15{
+    margin-left: 15px;
+}
+
+.widget{
+    /*height: 200px;*/
+    height: auto;
+}
+
+.thumbnail{
+    padding: 20px;
+}
+
+.cross-sign{
+    position: absolute;
+}
