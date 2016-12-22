@@ -70,11 +70,25 @@
 //    document.write(rightNow.getTime());
 </script>
 <script>
-    $.getJSON("http://api.timezonedb.com/v2/list-time-zone?key=LOG8R9E644IJ&format=json", {format:"json"}).done(function(data){
-        for(var i=0; i<data.zones.length; i++){
-            $('#city').append('<option value="'+data.zones[i].zoneName+'">'+data.zones[i].zoneName.split('/').pop()+'</option>');
+//    $.getJSON("http://api.timezonedb.com/v2/list-time-zone?key=LOG8R9E644IJ&format=json", {format:"json"}).done(function(data){
+//        for(var i=0; i<data.zones.length; i++){
+//            $('#city').append('<option value="'+data.zones[i].zoneName+'">'+data.zones[i].zoneName.split('/').pop()+'</option>');
+//        }
+//    });
+</script>
+<script>
+    var data = null;
+    $.ajax({
+        async: false,
+        type:'get',
+        url:"http://api.timezonedb.com/v2/list-time-zone",
+        data:{key:'LOG8R9E644IJ', format:'json'},
+        dataType:'JSON',
+        success: function (response) {
+            data = response;
         }
     });
+    console.log(data);
 </script>
 </body>
 </html>
