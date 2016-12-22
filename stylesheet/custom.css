@@ -14,3 +14,7 @@
 .cross-sign{
     position: absolute;
 }
+
+#cities{
+    min-height: 408px;
+}
