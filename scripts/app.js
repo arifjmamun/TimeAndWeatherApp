@@ -82,10 +82,10 @@
                     difference = CalculateDifferences(localTime, serverTime, 0);
                 }
                 else if (localTime.getHours() > serverTime.getHours()){
-                    difference = CalculateDifferences(localTime, serverTime, serverTime.getHours() - localTime.getHours());
+                    difference = CalculateDifferences(localTime, serverTime, localTime.getHours() - serverTime.getHours());
                 }
                 else {
-                    difference = CalculateDifferences(localTime, serverTime, localTime.getHours() - serverTime.getHours());
+                    difference = CalculateDifferences(localTime, serverTime, serverTime.getHours() - localTime.getHours());
                 }
             }
         });
@@ -94,18 +94,19 @@
 
     // Calculate differences
     function CalculateDifferences(localTime, serverTime, differenceHours) {
-        var differenceMinutes =0;
+        var differenceMinutes = 0;
         var differenceDate = localTime.getDate() > serverTime.getDate() ? serverTime.getDate() - localTime.getDate() :  localTime.getDate() - serverTime.getDate();
         var differenceDay = localTime.getDay() > serverTime.getDay() ? serverTime.getDay() - localTime.getDay() :  localTime.getDay() - serverTime.getDay();
         var differenceYear = localTime.getFullYear() > serverTime.getFullYear() ? serverTime.getFullYear() - localTime.getFullYear() :  localTime.getFullYear() - serverTime.getFullYear();
+
         if(localTime.getMinutes() === serverTime.getMinutes()){
             differenceMinutes = 0;
         }
         else if(localTime.getMinutes() > serverTime.getMinutes()){
-            differenceMinutes = serverTime.getMinutes() - localTime.getMinutes();
+            differenceMinutes = (-(localTime.getMinutes() - serverTime.getMinutes()));
         }
         else {
-            differenceMinutes = localTime.getMinutes() - serverTime.getMinutes();
+            differenceMinutes = serverTime.getMinutes() - localTime.getMinutes();
         }
 
         return {"hours":differenceHours, "minutes":differenceMinutes, "day":differenceDay, "date":differenceDate, "year":differenceYear};
@@ -116,8 +117,9 @@
         if(localStorage.length>0){
             $('#cities').html('');
             $.each(localStorage, function (cityName, jsonString) {
-                AddCity(cityName, JSON.parse(jsonString));
-            })
+                var cityValue = JSON.parse(jsonString);
+                AddCity(cityName, cityValue);
+            });
         }
     }
 
@@ -139,11 +141,16 @@
     // Synchronize the real time
     function SynchronizeLocalTime(difference) {
         var now = new Date();
-        var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-            daysName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-            time = (now.getHours() + Number(difference.hours)) + ':' + (now.getMinutes() + Number(difference.minutes)),
-            date = [(now.getDate() + Number(difference.date)), monthName[now.getMonth() + Number(difference.day)], (now.getFullYear() + Number(difference.year))],
+        var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        var  daysName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        var date = [(now.getDate() + Number(difference.date)), monthName[now.getMonth() + Number(difference.day)], (now.getFullYear() + Number(difference.year))],
             day= daysName[now.getDay() + Number(difference.day)];
+        var min = (now.getMinutes() + Number(difference.minutes)) < 60 ? (now.getMinutes() + Number(difference.minutes)) : (now.getMinutes() + Number(difference.minutes)) % 60;
+        var hour = (now.getMinutes() + Number(difference.minutes)) > 59 ? 1 : 0;
+        hour = (now.getHours() + Number(difference.hours + hour)) <25 ? (now.getHours() + Number(difference.hours)) : ((now.getHours() + Number(difference.hours)) % 24);
+
+        var time = (hour+':'+min);
+
         return [date.join(' '),time.replace(/-/g,''),day].join(' ');
     }
 
